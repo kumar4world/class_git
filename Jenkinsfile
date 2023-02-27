@@ -24,7 +24,7 @@ pipeline {
  
         stage('Deploy') {
             steps {
-                withKubeConfig([credentialsId: b022ed7e-61e6-4410-932d-0500c39d218b]) {
+                withKubeConfig([credentialsId: "${KUBECONFIG}"]) {
                     sh "gcloud container clusters get-credentials ${CLUSTER_NAME} --zone=${ZONE} --project=${PROJECT_ID}"
                     sh "kubectl create deployment hello-app --image=us-central1-a-docker.pkg.dev/${PROJECT_ID}/hello-repo/hello-app:v1"
                 }
