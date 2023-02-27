@@ -20,7 +20,8 @@ pipeline {
                 sh "docker push gcr.io/${PROJECT_ID}/${IMAGE_NAME}:${IMAGE_TAG}"
             }
         }
-        
+       
+ 
         stage('Deploy') {
             steps {
                 withKubeConfig([credentialsId: b022ed7e-61e6-4410-932d-0500c39d218b]) {
