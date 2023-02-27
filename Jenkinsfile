@@ -7,7 +7,7 @@ pipeline {
         ZONE = 'us-central1-a'
         IMAGE_NAME = 'hello-app'
         IMAGE_TAG = 'mytag'
-        KUBECONFIG = credentials('pf-production')
+        KUBECONFIG = credentials('pradeep')
     }
     
     stages {
