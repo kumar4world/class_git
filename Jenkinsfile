@@ -20,10 +20,11 @@ pipeline {
                 sh "docker push gcr.io/${PROJECT_ID}/${IMAGE_NAME}:${IMAGE_TAG}"
             }
         }
-        
+       
+ 
         stage('Deploy') {
             steps {
-                withKubeConfig([credentialsId: "${KUBECONFIG}"]) {
+                withKubeConfig([credentialsId: b022ed7e-61e6-4410-932d-0500c39d218b]) {
                     sh "gcloud container clusters get-credentials ${CLUSTER_NAME} --zone=${ZONE} --project=${PROJECT_ID}"
                     sh "kubectl create deployment hello-app --image=us-central1-a-docker.pkg.dev/${PROJECT_ID}/hello-repo/hello-app:v1"
                 }
