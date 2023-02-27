@@ -13,11 +13,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh "git clone https://github.com/GoogleCloudPlatform/kubernetes-engine-samples
-cd kubernetes-engine-samples/hello-app"
+                sh "git clone https://github.com/GoogleCloudPlatform/kubernetes-engine-samples"
                 sh "cd kubernetes-engine-samples/hello-app"
                 sh "docker build -t us-central1-a-docker.pkg.dev/${PROJECT_ID}/hello-repo/hello-app:v1 ."
-                sh "docker build -t ${IMAGE_NAME}:${IMAGE_TAG} ."
                 sh "docker tag us-central1-a-docker.pkg.dev/${PROJECT_ID}/hello-repo/hello-app:v1 gcr.io/${PROJECT_ID}/${IMAGE_NAME}:${IMAGE_TAG}"
                 sh "docker push gcr.io/${PROJECT_ID}/${IMAGE_NAME}:${IMAGE_TAG}"
             }
