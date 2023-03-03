@@ -5,5 +5,12 @@ change happened by padma
 Pradeep configured Jenkins to Git Integration
 deploying code
 my seventh line by padma
-new change by padma
-new class junkins
+<<<<<<< HEAD
+new change by padmas
+=======
+weather
+colorado springs
+New updated info about github
+insert created new git branch
+
+>>>>>>> 7877ddee573f5fff353d8f79a29d69ce89143c7
